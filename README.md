@@ -247,7 +247,7 @@ Date:   Thu Oct 14 07:17:31 2021 +0800
 
 在 github 仓库提交一个 issue，看是否提交 fix 时，可以关联这个 issue
 
-创建一个 issue [fix type 提交类型关联测试 2](https://github.com/zuoxiaobai/comitizen-practice-demo/issues/2)
+创建一个 issue [fix type 提交类型关联测试 1](https://github.com/xushux/demo/issues?q=is%3Aissue+is%3Aclosed)
 
 ```bash
 git cz
