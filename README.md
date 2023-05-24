@@ -294,11 +294,11 @@ cz-cli@4.2.4, cz-conventional-changelog@3.2.0
 
 注意：如果 commit 信息里面后面不加 (#issue 编号)，git commit 表面是看不出来的，只有点击去才行
 
-![fix_close_issue.png](./imags/fix_close_issue.png)
+![issue.png](./imags/issue_2.png)
 
-该提交会关闭 #2 issue，注意 issue 详情里会自动关联 commit 信息中有 #issue 编号的提交，如下图，
+该提交会关闭 #1 issue，注意 issue 详情里会自动关联 commit 信息中有 #issue 编号的提交，如下图，
 
-![fix_close_issue_2.png](./imags/fix_close_issue_2.png)
+![issue_1.png](./imags/issue_1.png)
 
 ## husky + commitlint 提交校验
 
