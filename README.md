@@ -166,7 +166,7 @@ git cz
 # ? Does this change affect any open issues? No
 # [main caae82e] docs(readme): update readme.md, add init project description
 # 1 file changed, 7 insertions(+)
-# zuo@zmac comitizen-practice-demo %
+# v_xushuxiang@zmac demo %
 ```
 
 ![git_cz.png](./imags/git_cz.png)
@@ -229,15 +229,15 @@ git cz # 提交
 # ? Does this change affect any open issues? No
 # [main caae82e] docs(readme): update readme.md, add init project description
 # 1 file changed, 7 insertions(+)
-# zuo@zmac comitizen-practice-demo %
+# v_xushuxiang@zmac demo %
 ```
 
 查看提交信息
 
 ```bash
-zuo@zmac comitizen-practice-demo % git log
+v_xushuxiang@zmac demo % git log
 commit caae82ec7beb66423f190ab86a6343447b250046 (HEAD -> main)
-Author: zuoxiaobai <guoqzuo@gmail.com>
+Author: v_xushuxiang <v_xushuxiang@gmail.com>
 Date:   Thu Oct 14 07:17:31 2021 +0800
 
     docs(readme): update readme.md, add init project description
@@ -270,7 +270,7 @@ cz-cli@4.2.4, cz-conventional-changelog@3.2.0
 提交时选择是否影响了 open 状态的 issue，如果选择了，github 会自动关闭该 issue
 
 ```bash
-zuo@zmac comitizen-practice-demo % git cz
+v_xushuxiang@zmac demo % git cz
 cz-cli@4.2.4, cz-conventional-changelog@3.2.0
 
 # ? Select the type of change that you're committing: fix:      A bug fix
@@ -287,7 +287,7 @@ cz-cli@4.2.4, cz-conventional-changelog@3.2.0
 #  fix #2
 # [main 146e7b9] fix(public): auto close github issue test
 #  1 file changed, 1 insertion(+)
-# zuo@zmac comitizen-practice-demo %
+# v_xushuxiang@zmac demo %
 ```
 
 注意：如果 commit 信息里面后面不加 (#issue 编号)，git commit 表面是看不出来的，只有点击去才行
@@ -375,7 +375,7 @@ npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
 ```bash
 git add .
 git commit -m 'xx'
-zuo@zmac comitizen-practice-demo % git commit -m 'xxx'
+v_xushuxiang@zmac demo % git commit -m 'xxx'
 # ⧗   input: xxx
 # ✖   subject may not be empty [subject-empty]
 # ✖   type may not be empty [type-empty]
@@ -384,7 +384,7 @@ zuo@zmac comitizen-practice-demo % git commit -m 'xxx'
 # ⓘ   Get help: https://github.com/conventional-changelog/commitlint/#what-is-commitlint
 
 # husky - commit-msg hook exited with code 1 (error)
-# zuo@zmac comitizen-practice-demo %
+# v_xushuxiang@zmac demo %
 ```
 
 提示缺少 subject 就是提交信息、type 就是提交类型，按照规范提交就 ok 了
@@ -446,11 +446,11 @@ git commit --amend -m 'feat(version):version to 0.2.0' # commit 信息不对，�
 npm version 时加上比较好的注释试试
 
 ```bash
-zuo@zmac comitizen-practice-demo % npm version 0.4.0 -m 'feat(version):0.4.0 tag remark'
+v_xushuxiang@zmac demo % npm version 0.4.0 -m 'feat(version):0.4.0 tag remark'
 v0.4.0
-zuo@zmac comitizen-practice-demo % git log
+v_xushuxiang@zmac demo % git log
 commit 0fdcd82353f3907c4a31e470402b6dce743b4b11 (HEAD -> main, tag: v0.4.0)
-Author: zuoxiaobai <guoqzuo@gmail.com>
+Author: v_xushuxiang <v_xushuxiang@gmail.com>
 Date:   Fri Oct 15 06:58:20 2021 +0800
 
     feat(version):0.4.0 tag remark
@@ -474,9 +474,9 @@ scripts 设置
 ```
 
 ```bash
-zuo@zmac comitizen-practice-demo % npm run release
+v_xushuxiang@zmac demo % npm run release
 
-> comitizen-practice-demo@0.4.1 release /Users/zuo/Desktop/fecloe/comitizen-practice-demo
+> demo@0.4.1 release /Users/v_xushuxiang/Desktop/fecloe/demo
 > standard-version
 
 ✔ bumping version in package.json from 0.4.1 to 0.4.2
@@ -486,7 +486,7 @@ zuo@zmac comitizen-practice-demo % npm run release
 ✔ committing package-lock.json and package.json and CHANGELOG.md
 ✔ tagging release v0.4.2
 ℹ Run `git push --follow-tags origin main` to publish
-zuo@zmac comitizen-practice-demo %
+v_xushuxiang@zmac demo %
 # git push
 # git push --tags
 ```
