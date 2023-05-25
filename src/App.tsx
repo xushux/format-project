@@ -3,7 +3,9 @@ import logo from './logo.svg'
 import './App.css'
 
 function App() {
-  const a = '1231'
+  const func = () => {
+    return '11111'
+  }
   return (
     <div className="App">
       <header className="App-header">
