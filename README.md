@@ -373,18 +373,21 @@ npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
 测试
 
 ```bash
-git add .
-git commit -m 'xxx'
-v_xushuxiang@zmac demo % git commit -m 'xxx'
-# ⧗   input: xxx
-# ✖   subject may not be empty [subject-empty]
-# ✖   type may not be empty [type-empty]
+$ git add .
+$ git commit -m 'xxx'
 
-# ✖   found 2 problems, 0 warnings
-# ⓘ   Get help: https://github.com/conventional-changelog/commitlint/#what-is-commitlint
+> testproject@0.1.0 lint
+> eslint --ext .ts,.tsx,.js,.jsx ./
 
-# husky - commit-msg hook exited with code 1 (error)
-# v_xushuxiang@zmac demo %
+⧗   input: xxx
+✖   subject may not be empty [subject-empty]
+✖   type may not be empty [type-empty]
+
+✖   found 2 problems, 0 warnings
+ⓘ   Get help: https://github.com/conventional-changelog/commitlint/#what-is-commitlint
+
+husky - commit-msg hook exited with code 1 (error)
+
 ```
 
 提示缺少 subject 就是提交信息、type 就是提交类型，按照规范提交就 ok 了
