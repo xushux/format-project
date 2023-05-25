@@ -3,7 +3,7 @@
 ```
 
 ## eslint 使用
-本次前端工程化的项目是基于react来的，vue用户也是同样的道理，只是有个别的依赖包不一样。
+本次前端工程化的项目是基于react来的，vue用户也是同样的道理，只是有个别的依赖包不一样。（）[eslint](https://zh-hans.eslint.org/docs/latest/use/getting-started)
 
 ```bash
 "eslint": "^8.33.0",  // 这个是eslint的主包
@@ -44,6 +44,10 @@ module.exports = {
     rules: {
       quotes: ['error', 'single'],  // 配置单引号的规则，如果不是单引号，报错
       semi: 'off',  //  不需要使用分号；
+      trailingComma: 'none',  // 参数后面不允许使用分号
+      arrowParens: 'avoid', // 要求箭头函数的参数使用圆括号
+      tabWidth: 2,
+      printWidth: 120
       'react/react-in-jsx-scope': 'off'  // 在jsx中不需要导入 react的包
     }
   }
@@ -59,7 +63,7 @@ module.exports = {
 
 ![lint.png](./imags/lint.png)
 
-代码中的不规范的格式就暴露出来了，现在可以来修复并且格式化代码。但是在格式化代码方面，prettier做的更好点，所以咱们来使用 prettier来进行代码格式化
+代码中的不规范的格式就暴露出来了，现在可以来修复并且格式化代码。在格式化代码方面，prettier做的更好点
 
 ## prettier
 
@@ -70,8 +74,6 @@ module.exports = {
 ```bash
 pnpm i prettier eslint-plugin-prettier eslint-config-prettier
 ```
-
-下面来解释下，这些包是干啥用的，不然稀里糊涂安装了它
 
 ```bash
 "prettier": "^2.8.3",  // prettier 主包
@@ -142,11 +144,6 @@ React 项目 commitizen + husky + commitlint，git commit 提交信息规范校�
 - `commitizen`：使用 git cz 代替 git commit，引导用户填写规范的 commit 信息
 - `husky + commitlint`：git commit 动作时，校验 commit 信息，如果不满足 commitizen 规范，无法提交
 
-## 初始化项目
-
-```bash
-npx create-react-app testproject --template typescript
-```
 
 ## commitizen 使用
 
@@ -154,22 +151,30 @@ npx create-react-app testproject --template typescript
 
 ```bash
 pnpm install -g commitizen cz-conventional-changelog  # 安装规范化提交插件
-echo '{"path": "cz-conventional-changelog"}' > ~/.czrc # 配置
-git cz
-# ? Select the type of change that you're committing: docs:     Documentation only changes
-# ? What is the scope of this change (e.g. component or file name): (press enter to skip) readme
-# ? Write a short, imperative tense description of the change (max 86 chars):
-# (46) update readme.md, add init project description
-# ? Provide a longer description of the change: (press enter to skip)
 
-# ? Are there any breaking changes? No
-# ? Does this change affect any open issues? No
-# [main caae82e] docs(readme): update readme.md, add init project description
-# 1 file changed, 7 insertions(+)
-# v_xushuxiang@zmac demo %
+"config": {
+  "commitizen": {
+    "path": "./node_modules/cz-conventional-changelog"
+  }
+}
+
+git cz
+PS C:\Users\v_xushuxiang\Desktop\demo\demo> git cz
+cz-cli@4.3.0, cz-conventional-changelog@3.3.0
+
+? Select the type of change that you're committing: feat:     A new feature
+? What is the scope of this change (e.g. component or file name): (press enter to skip) test
+? Write a short, imperative tense description of the change (max 88 chars):
+ (11) test updata
+? Provide a longer description of the change: (press enter to skip)
+
+? Are there any breaking changes? No
+? Does this change affect any open issues? No
+[main 9fc4737] feat(test): test updata
+ Committer: xushuxiang <v_xushuxiang@bilibili.com>
 ```
 
-![terminal_cz.png](./imags/terminal_cz.png)
+![termin_cz.png](./imags/termin_cz.png)
 
 如图，git cz 运行后，会有如下 6 个步骤
 
@@ -229,13 +234,13 @@ git cz # 提交
 # ? Does this change affect any open issues? No
 # [main caae82e] docs(readme): update readme.md, add init project description
 # 1 file changed, 7 insertions(+)
-# v_xushuxiang@zmac demo %
+# C:\Users\v_xushuxiang\Desktop\demo\demo> demo %
 ```
 
 查看提交信息
 
 ```bash
-v_xushuxiang@zmac demo % git log
+PS C:\Users\v_xushuxiang\Desktop\demo\demo> % git log
 commit caae82ec7beb66423f190ab86a6343447b250046 (HEAD -> main)
 Author: v_xushuxiang <v_xushuxiang@gmail.com>
 Date:   Thu Oct 14 07:17:31 2021 +0800
@@ -321,24 +326,24 @@ pnpm install husky --save-dev
 我们还需要生成`pre-commit`钩子的时候来执行`npm run lint`
 
 ```bash
-npx husky add .husky/pre-commit "npm run lint"  // 这句话的意思是说，在commit之前先执行 npm run lint脚本
+npx husky add .husky/pre-commit "npm run lint"  // 在commit之前先执行 npm run lint脚本
 ```
 
 安装完成后，会在 `.husky` 目录中新增一个文件 `pre-commit`
 
 ![pre-commit.png](./imags/pre-commit.png)
 
-需要注意的是，我们需要在 package.json 注册 prepare 命令，在项目进行 pnpm i 之后就行 Huksy 的安装，命令如下:
+需要在 package.json 注册 prepare 命令，在项目进行 pnpm i 之后就行 Huksy 的安装，命令如下:
 
 ```bash
 + "prepare": "husky install"
 ```
 
-上面咱们是自己手动 npx husky install的，我们需要让后面使用咱们配置的人自动来初始化 husky
+上面是自己手动 npx husky install的，需要让后面使用配置的人自动来初始化 husky
 
 但是大家如果再深入一步，就会想到🤔🤔🤔。既然我内容都管控好了，是不是需要把 commit -m 'xxx' 中的msg 也管控下呀😉😉😉
 
-### commitlint 安装配置
+## commitlint 安装配置
 
 ```bash
 pnpm i commitlint @commitlint/cli @commitlint/config-conventional -D
@@ -352,7 +357,7 @@ pnpm i commitlint @commitlint/cli @commitlint/config-conventional -D
  "commitlint": "^17.4.2" // commitlint 主包
 ```
 
-安装好这些包后，需要在根目录添加一个 .commitlintrc.cjs来配置咱们的commitlint的配置:
+根目录添加一个 `.commitlintrc.cjs`来配置`commitlint`的配置:
 
 ```bash
 module.exports = {
@@ -412,9 +417,7 @@ pnpm i lint-staged -D
 +    }
 ```
 
-上面那段脚本的意思是 只对 .js,.jsx, .ts,.tsx 后缀文件进行eslint的修复，其他的就不进行格式化和修复了
-
-有了这个，还需要对 pre-commit 这个钩子就行修改内容
+还需要对 pre-commit 这个钩子就行修改内容
 
 ```bash
 #!/usr/bin/env sh
@@ -461,7 +464,7 @@ Date:   Fri Oct 15 06:58:20 2021 +0800
 # 再次生成 changelog 又不行了，空白
 ```
 
-### standard-version（自动生成、打 tag）
+## standard-version（自动生成、打 tag）
 
 上面的例子中，npm run version 更新版本号会直接提交，导致且 commit 信息就是版本号，不符合 commitizen 规范。导致手动生成 log 时，会是空白。[standard-version](https://github.com/conventional-changelog/standard-version) 就很好的解决了这个问题。安装后，只需要 npm run release，就可以有 npm run version 的功能，而且提交信息是标准的 commitizen 规范，而且自动生成 changelog 自动打 tag，自动 commit。你只需要 push 即可。
 
