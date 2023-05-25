@@ -1,6 +1,6 @@
 {
   "name": "demo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -27,7 +27,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx ./",
     "prettier": "eslint --fix --ext .ts,.tsx,.js,.jsx --quiet ./",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "standard-version"
   },
   "eslintConfig": {
     "extends": [
@@ -57,7 +58,8 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.2"
+    "lint-staged": "^13.2.2",
+    "standard-version": "^9.5.0"
   },
   "lint-staged": {
     "**/*.{js,jsx,tsx,ts}": [
