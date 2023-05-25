@@ -374,7 +374,7 @@ npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
 
 ```bash
 git add .
-git commit -m 'xx'
+git commit -m 'xxx'
 v_xushuxiang@zmac demo % git commit -m 'xxx'
 # ⧗   input: xxx
 # ✖   subject may not be empty [subject-empty]
