@@ -3,7 +3,7 @@
 ```
 
 ## eslint 使用
-本次前端工程化的项目是基于react来的，vue用户也是同样的道理，只是有个别的依赖包不一样。（）[eslint](https://zh-hans.eslint.org/docs/latest/use/getting-started)
+本次前端工程化的项目是基于react来的，vue用户也是同样的道理，只是有个别的依赖包不一样。[eslint](https://zh-hans.eslint.org/docs/latest/use/getting-started)
 
 ```bash
 "eslint": "^8.33.0",  // 这个是eslint的主包
@@ -275,7 +275,7 @@ cz-cli@4.2.4, cz-conventional-changelog@3.2.0
 提交时选择是否影响了 open 状态的 issue，如果选择了，github 会自动关闭该 issue
 
 ```bash
-v_xushuxiang@zmac demo % git cz
+PS C:\Users\v_xushuxiang\Desktop\demo\demo> % git cz
 cz-cli@4.2.4, cz-conventional-changelog@3.2.0
 
 # ? Select the type of change that you're committing: fix:      A bug fix
@@ -292,7 +292,7 @@ cz-cli@4.2.4, cz-conventional-changelog@3.2.0
 #  fix #2
 # [main 146e7b9] fix(public): auto close github issue test
 #  1 file changed, 1 insertion(+)
-# v_xushuxiang@zmac demo %
+# PS C:\Users\v_xushuxiang\Desktop\demo\demo> %
 ```
 
 注意：如果 commit 信息里面后面不加 (#issue 编号)，git commit 表面是看不出来的，只有点击去才行
@@ -307,7 +307,7 @@ cz-cli@4.2.4, cz-conventional-changelog@3.2.0
 
 [commitlint](https://github.com/conventional-changelog/commitlint) 结合 husky 可以在 git commit 时校验 commit 信息是否符合规范
 
-### husk 安装
+### husky 安装
 
 1. 安装 husky
 
@@ -452,9 +452,9 @@ git commit --amend -m 'feat(version):version to 0.2.0' # commit 信息不对，�
 npm version 时加上比较好的注释试试
 
 ```bash
-v_xushuxiang@zmac demo % npm version 0.4.0 -m 'feat(version):0.4.0 tag remark'
+PS C:\Users\v_xushuxiang\Desktop\demo\demo> % npm version 0.4.0 -m 'feat(version):0.4.0 tag remark'
 v0.4.0
-v_xushuxiang@zmac demo % git log
+PS C:\Users\v_xushuxiang\Desktop\demo\demo> % git log
 commit 0fdcd82353f3907c4a31e470402b6dce743b4b11 (HEAD -> main, tag: v0.4.0)
 Author: v_xushuxiang <v_xushuxiang@gmail.com>
 Date:   Fri Oct 15 06:58:20 2021 +0800
