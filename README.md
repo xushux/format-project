@@ -1,9 +1,11 @@
 ```bash
-在大前端时代，前端的各种工具链穷出不断，有eslint, prettier, husky, commitlint 等, 东西太多有的时候也是trouble😂😂😂,怎么正确的使用这个是每一个前端开发者都需要掌握的内容，请上车🚗🚗🚗
+在大前端时代，前端的各种工具链穷出不断，有eslint, prettier, husky, commitlint 等
+东西太多有的时候也是trouble😂😂😂,怎么正确的使用这个是每一个前端开发者都需要掌握的内容，请上车🚗🚗🚗
 ```
 
 ## eslint 使用
-本次前端工程化的项目是基于react来的，vue用户也是同样的道理，只是有个别的依赖包不一样。[eslint](https://zh-hans.eslint.org/docs/latest/use/getting-started)
+
+本次前端工程化的项目是基于 react 来的，vue 用户也是同样的道理，只是有个别的依赖包不一样。（）[eslint](https://zh-hans.eslint.org/docs/latest/use/getting-started)
 
 ```bash
 "eslint": "^8.33.0",  // 这个是eslint的主包
@@ -19,7 +21,7 @@
 pnpm i eslint eslint-plugin-react eslint-plugin-react-hooks @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
 ```
 
-接下来需要对eslint的规范写入配置文件中，可以在项目的根目录下面建立一个 `.eslintrc.cjs`
+接下来需要对 eslint 的规范写入配置文件中，可以在项目的根目录下面建立一个 `.eslintrc.cjs`
 
 ```bash
 module.exports = {
@@ -53,7 +55,7 @@ module.exports = {
   }
 ```
 
-接下来在package.json 的 scripts 中加入一条命令
+接下来在 package.json 的 scripts 中加入一条命令
 
 ```bash
 "lint": "eslint --ext .ts,.tsx,.js,.jsx ./" // 使用eslint 规范 ts,tsx,js,jsx的代码
@@ -63,7 +65,7 @@ module.exports = {
 
 ![lint.png](./imags/lint.png)
 
-代码中的不规范的格式就暴露出来了，现在可以来修复并且格式化代码。在格式化代码方面，prettier做的更好点
+代码中的不规范的格式就暴露出来了，现在可以来修复并且格式化代码。在格式化代码方面，prettier 做的更好点
 
 ## prettier
 
@@ -81,14 +83,14 @@ pnpm i prettier eslint-plugin-prettier eslint-config-prettier
 "eslint-plugin-prettier": "^4.2.1",  // 在eslint当中，使用prettier为插件，才能一起使用
 ```
 
-安装好依赖后，咱们还需要在 `eslitrc.cjs`中加入prettier的配置如下：
+安装好依赖后，咱们还需要在 `eslitrc.cjs`中加入 prettier 的配置如下：
 
 ```bash
 {
  extends:[
  ...,
 + 'prettier', // prettier
-+ 'plugin:prettier/recommended' // prettier推荐的配置  
++ 'plugin:prettier/recommended' // prettier推荐的配置
  ],
 + plugins:[...,'prettier'],
 rules: {
@@ -136,14 +138,12 @@ dist
 
 ![setting_2.png](./imags/setting_2.png)
 
-
-# commitizen-demo
+# commitizen + husky + commitlint
 
 React 项目 commitizen + husky + commitlint，git commit 提交信息规范校验 demo，[conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) 实践
 
 - `commitizen`：使用 git cz 代替 git commit，引导用户填写规范的 commit 信息
 - `husky + commitlint`：git commit 动作时，校验 commit 信息，如果不满足 commitizen 规范，无法提交
-
 
 ## commitizen 使用
 
@@ -242,7 +242,7 @@ git cz # 提交
 ```bash
 PS C:\Users\v_xushuxiang\Desktop\demo\demo> % git log
 commit caae82ec7beb66423f190ab86a6343447b250046 (HEAD -> main)
-Author: v_xushuxiang <v_xushuxiang@gmail.com>
+Author: v_xushuxiang <v_xushuxiang@bilibili.com>
 Date:   Thu Oct 14 07:17:31 2021 +0800
 
     docs(readme): update readme.md, add init project description
@@ -339,9 +339,9 @@ npx husky add .husky/pre-commit "npm run lint"  // 在commit之前先执行 npm 
 + "prepare": "husky install"
 ```
 
-上面是自己手动 npx husky install的，需要让后面使用配置的人自动来初始化 husky
+上面是自己手动 npx husky install 的，需要让后面使用配置的人自动来初始化 husky
 
-但是大家如果再深入一步，就会想到🤔🤔🤔。既然我内容都管控好了，是不是需要把 commit -m 'xxx' 中的msg 也管控下呀😉😉😉
+但是大家如果再深入一步，就会想到 🤔🤔🤔。既然我内容都管控好了，是不是需要把 commit -m 'xxx' 中的 msg 也管控下呀 😉😉😉
 
 ## commitlint 安装配置
 
@@ -365,15 +365,15 @@ module.exports = {
 }
 ```
 
-还需要在git hooks中添加一个方法
+还需要在 git hooks 中添加一个方法
 
 ```bash
 npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
 ```
+
 然后会在`.husky`中生成一个新的文件`commit-msg`
 
 ![commit-msg.png](./imags/commit-msg.png)
-
 
 测试
 
@@ -407,11 +407,11 @@ husky - commit-msg hook exited with code 1 (error)
 pnpm i lint-staged -D
 ```
 
-然后在package.json中新增如下内容
+然后在 package.json 中新增如下内容
 
 ```bash
 + "lint-staged": {
-+     "**/*.{js,jsx,tsx,ts}": [  
++     "**/*.{js,jsx,tsx,ts}": [
 +          "eslint --fix"
 +       ]
 +    }
@@ -426,7 +426,6 @@ pnpm i lint-staged -D
 - npm run lint
 + npx --no -- lint-staged
 ```
-
 
 ## 根据 commit 信息生成 changelog
 
@@ -456,7 +455,7 @@ PS C:\Users\v_xushuxiang\Desktop\demo\demo> % npm version 0.4.0 -m 'feat(version
 v0.4.0
 PS C:\Users\v_xushuxiang\Desktop\demo\demo> % git log
 commit 0fdcd82353f3907c4a31e470402b6dce743b4b11 (HEAD -> main, tag: v0.4.0)
-Author: v_xushuxiang <v_xushuxiang@gmail.com>
+Author: v_xushuxiang <v_xushuxiang@bilibili.com>
 Date:   Fri Oct 15 06:58:20 2021 +0800
 
     feat(version):0.4.0 tag remark
