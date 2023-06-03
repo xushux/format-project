@@ -66,19 +66,25 @@ module.exports = {
 
 ![lint.png](./imags/lint.png)
 
-代码中的不规范的格式就暴露出来了，现在可以来修复并且格式化代码。在格式化代码方面，prettier 做的更好点
-
 ### 注意： eslint查找自己配置文件的优先级如下
 
+如果在同一目录下存在多个配置文件，ESLint 将按照以下优先顺序只使用其中一个（并不会进行合并配置）：
+
 .eslintrc.js
+.eslintrc.cjs
 .eslintrc.yaml
 .eslintrc.yml
 .eslintrc.json
-.eslintrc
 package.json
 
 如果项目中存在多个配置文件则 eslint 先检同级下的 配置文件然后在找别的，选择原则就是就近原则。
+
+ESLint 会自动在要检查文件的目录中寻找（ .eslintrc.* 和 package.json 文件），并在其直系父目录中寻找，直到文件系统的根目录（/）、当前用户的主目录（~/）或指定 root: true 时停止。
+
 *例如：*如果在你的主目录下有一个自定义的配置文件 (~/.eslintrc) ，如果没有其它配置文件时它才会被使用。
+
+代码中的不规范的格式就暴露出来了，现在可以来修复并且格式化代码。在格式化代码方面，prettier 做的更好点
+
 
 ## prettier
 
