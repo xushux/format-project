@@ -560,4 +560,34 @@ npm run release # 2.1.3-alpha.1 to 2.2.0
 
 对于版本号信息，参考 [npm version](https://docs.npmjs.com/cli/v7/commands/npm-version) 文档:
 
-> The newversion argument should be a valid semver string, a valid second argument to [semver.inc](https://github.com/npm/node-semver#functions) (one of patch, minor, major, prepatch, preminor, premajor,
+ 
+ 1. AnyRule 
+这是一个用来快速检索常用正则表达式的插件，希望能给大家在繁忙的开发过程中带来一丁点的效率提升。
+
+ 2. Path Intellisense
+   该扩展可以自动补全代码中的路径和文件名。例如前端的静态文件引入路径填写修改。
+
+ 3.  GitLens
+   这个工具可以清楚的看见代码是谁写的，还有很多功能，也是团队开发中必安的插件。
+
+ 4. chatgpt中文版
+   无需注册，无需翻墙
+
+ 5. Quokka.js
+    它可以用于快速构建 JavaScript / TypeScript 原型设计的开发人员生产力工具。当您输入时，运行时，值会更新并显示在您的代码旁边的 IDE 中。 
+ 6. Code Runner 
+   可以运行多种语言的代码片段或代码文件，包括 JavaScript。它有点类似于 Quokka，但它支持多种编程语言，并且只能运行一个代码片段。
+ 7. Import Cost
+   此工具将在编辑器中内联显示导入包的大小。作为一个有抱负的前端开发者，我们应该对导入包的体积敏感，从而优化性能。
+ 8. Image preview
+   当我们在 HTML 或 CSS 中导入图像时，它会在侧边栏中显示图像。通过这个特性，我们可以快速观察代码是否写得正确。
+ 9. Web Gradients
+ [Web Gradients](https://webgradients.com/)
+ 在这里我们可以实现网站漂亮的渐变背景颜色的设计与合成。
+
+ 10. learn-anything
+ [learn-anything](https://learn-anything.xyz)
+ 当我们想学习一些东西时，这里提供详细的路线。
+
+  
+
