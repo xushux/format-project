@@ -6,7 +6,7 @@
 
 ## eslint 使用
 
-本次前端工程化的项目是基于 react 来的，vue 用户也是同样的道理，只是有个别的依赖包不一样。（）[eslint](https://zh-hans.eslint.org/docs/latest/use/getting-started)
+[eslint](https://zh-hans.eslint.org/docs/latest/use/getting-started)
 
 ```bash
 "eslint": "^8.33.0",  // 这个是eslint的主包
@@ -68,9 +68,21 @@ module.exports = {
 
 代码中的不规范的格式就暴露出来了，现在可以来修复并且格式化代码。在格式化代码方面，prettier 做的更好点
 
+### 注意： eslint查找自己配置文件的优先级如下
+
+.eslintrc.js
+.eslintrc.yaml
+.eslintrc.yml
+.eslintrc.json
+.eslintrc
+package.json
+
+如果项目中存在多个配置文件则 eslint 先检同级下的 配置文件然后在找别的，选择原则就是就近原则。
+*例如：*如果在你的主目录下有一个自定义的配置文件 (~/.eslintrc) ，如果没有其它配置文件时它才会被使用。
+
 ## prettier
 
-`prettier` 是一款开源的代码格式化包，支持多种代码编写工具，常见的 `vscode, webstorm` 等，他都是支持的，那么怎么给他集成起来呢？
+`prettier` 是一款开源的代码格式化包，支持多种代码编写工具，常见的 `vscode, webstorm` 等，他都是支持的，那么怎么给他集成起来呢？(多语言支持 配置少 支持广泛) [prettier](https://www.prettier.cn/docs/index.html) 
 
 使用下面语句来安装依赖：
 
@@ -138,6 +150,21 @@ dist
 ![setting_1.png](./imags/setting_1.png)
 
 ![setting_2.png](./imags/setting_2.png)
+
+### eslint 和 prettier 的区别
+
+eslint 官网描述：
+目标是提供一个插件化的 javascript 代码检测工具
+prettier 官网描述：
+1、一个“有态度”的代码格式化工具
+2、支持大量编程语言
+区别
+1、eslint 针对的是 javascript，他是一个检测工具，包含 js 语法以及少部分格式问题，在 eslint 看来，语法对了就能
+保证代码正常运行，格式问题属于其次；
+2、prettier 属于格式化工具，它看不惯格式不统一，所以它就把 eslint 没干好的事接着干，另外，prettier 支持
+包含 js 在内的**多种语言**
+
+总结：eslint 和 prettier 这俩兄弟一个保证 js 代码质量，一个保证代码美观。
 
 # commitizen + husky + commitlint
 
