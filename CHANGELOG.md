@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/xushux/demo/compare/v1.2.2...v1.3.0) (2023-06-03)
+
+
+### Features
+
+* readme ([e0cfdea](https://github.com/xushux/demo/commit/e0cfdead9277c075203799446242277f988c7e08))
+* test ([#3](https://github.com/xushux/demo/issues/3)) ([5917dc5](https://github.com/xushux/demo/commit/5917dc536ce428200da62d59679fcf87fbe9a031))
+* **test:** test updata ([9fc4737](https://github.com/xushux/demo/commit/9fc47370788b091236e0534e41d4685808821134))
+
+
+### Bug Fixes
+
+* **readme:** close issues ([1b3ca00](https://github.com/xushux/demo/commit/1b3ca006247ed956168778b7358a4342240f302d)), closes [#3](https://github.com/xushux/demo/issues/3)
+* **test11:** update test11 ([c9347b1](https://github.com/xushux/demo/commit/c9347b1015152fc668bb4f08ff1b6476ba220138)), closes [#3](https://github.com/xushux/demo/issues/3)
+* **test:** auto close issues ([5a0760a](https://github.com/xushux/demo/commit/5a0760a7c1bcbbb55ef4dd26c323a93291744698)), closes [#3](https://github.com/xushux/demo/issues/3)
+* **test:** update test ([35c85cd](https://github.com/xushux/demo/commit/35c85cd260af02d485b63e93e28fc23bbb64294d))
+
 ### [1.2.2](https://github.com/xushux/demo/compare/v1.2.1...v1.2.2) (2023-05-25)
 
 ### [1.2.1](https://github.com/xushux/demo/compare/v1.2.1-alpha.1...v1.2.1) (2023-05-25)
