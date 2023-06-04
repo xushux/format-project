@@ -31,7 +31,7 @@ module.exports = {
         'es2021': true
     },
     extends: [
-      'eslint:recommended',  // 使用eslint推荐的语法规范
+      'eslint:',  // 使用eslint推荐的语法规范
       'plugin:react/recommended',  // react推荐的语法规范
       'plugin:@typescript-eslint/recommended' // ts推荐的语法规范
     ],
@@ -558,6 +558,412 @@ npm run release # 2.1.3-alpha.1 to 2.2.0
 ```
 
 对于版本号信息，参考 [npm version](https://docs.npmjs.com/cli/v7/commands/npm-version) 文档:
+
+# ES2016（ES7）
+1. Array.prototype.includes()  
+includes( )  方法用来判断一个数组是否包含一个指定的值，如果包含则返回 true，否则返回 false。
+1.2  语法及示例 
+```bash
+const arr = ['Barry','Lishen','Jenny','Chany'];
+ 
+arr.includes(value,index)
+```
+value，需要查找的元素值。index 可选 ，从 index 索引处开始查找 value。如果为负值，则按升序从 arr.length + index 的索引开始搜索。默认为 0。
+```bash
+const arr = ['Barry', 'Lishen', 'Jenny', 'Chany'];
+ 
+console.log(arr.includes('Barry')); // true
+console.log(arr.includes('Barry',0)); // true
+console.log(arr.includes('Barry',1)); // false
+console.log(arr.includes('Barry',2)); // false
+console.log(arr.includes('Barry',-1)); // false
+console.log(arr.includes('Barry',-2)); // false
+ 
+数组的长度是 4
+index 是 -5
+computed index 是 4 + (-5) = -1
+如果计算出的索引小于 0，则整个数组都会被搜索。 所以下面为 true
+ 
+console.log(arr.includes('Barry',-5)); // true
+```
+注意点:
+使用 includes()查找字符串是区分大小写的。
+使用 includes()只能判断简单类型的数据，对于复杂类型的数据，比如对象类型的数组，二维数组，这些是无法判断的.
+能识别NaN，indexOf是不能识别NaN的
+```bash
+    const arr = ['Barry', 'Lishen', 'Jenny', NaN, 'Chany'];
+ 
+    console.log(arr.includes(NaN)); // true
+    console.log(arr.indexOf(NaN)); // -1
+```
+如果只想知道某个值是否在数组中存在，而并不关心它的索引位置，建议使用includes(),如果想获取一个值在数组中的位置，那么使用indexOf方法。 
+
+2. 幂运算符 **
+Math.pow( )  
+```bash
+console.log(Math.pow(2, 10)); // 1024
+```
+
+幂运算符 ** 
+```bash
+console.log(2 ** 10); // 1024
+```
+
+基本求幂 
+```bash
+    console.log(2 ** 3); // 8
+    console.log(3 ** 2); // 9
+    console.log(3 ** 2.5); // 15.588457268119896
+    console.log(10 ** -1); // 0.1
+    console.log(NaN ** 4); // NaN
+```
+注意点：
+幂运算符的两个*号之间不能出现空格，否则语法会报错。
+
+# ES2017（ES8）
+1. Object.values()
+  Object.values 方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键值。
+```bash
+    const obj = {
+      name: "Barry",
+      age: 18,
+      height: 185,
+      money: 1000000000
+    }
+    console.log(Object.values(obj)); // ['Barry', 18, 185, 1000000000]
+```
+
+2. Object.entries()
+Object.entries() 方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历属性的键值对数组。
+```bash
+    const obj = {
+      name: "Barry",
+      age: 18,
+      height: 185,
+      money: 1000000000
+    }
+    console.log(Object.entries(obj)); // [['name','Barry'], ['age',18], ['height',185], ['money',100000000]]
+```
+
+3. String.prototype.padStart
+  str.padStart(targetLength , padString)
+targetLength
+
+        当前字符串需要填充到的目标长度。如果这个数值小于当前字符串的长度，则返回当前字符串本身。
+
+padString 可选
+
+        填充字符串。如果字符串太长，使填充后的字符串长度超过了目标长度，则只保留最左侧的部分，其他部分会被截断。此参数的默认值为 " "
+```bash
+    const str = "ABC";
+ 
+    console.log(str.padStart(10))  // "       ABC"
+    console.log(str.padStart(10, 'foo')) // "foofoofABC"
+    console.log(str.padStart(6, '123456')) // "123ABC"
+    console.log(str.padStart(8, '0')) // "00000ABC"
+    console.log(str.padStart(1)) // "ABC"
+```
+应用场景:
+数字替换(手机号，银行卡号等）
+```bash
+    const tel = '18737740333';
+ 
+    function formatTel (tel) {
+      return tel.slice(-4).padStart(tel.length, '*')
+    }
+ 
+    console.log(formatTel(tel));  // *******0333
+```
+
+4. String.prototype.padEnd
+把指定字符串填充到字符串尾部，返回新字符串。语法同 String.prototype.padStart
+```bash
+    const str = "ABC";
+ 
+    console.log(str.padEnd(10)) // "ABC       "
+    console.log(str.padEnd(10, 'foo')) // "ABCfoofoof"
+    console.log(str.padEnd(6, '123456')) // "ABC123"
+    console.log(str.padEnd(1))  // "ABC"
+```
+
+# ES2018（ES9）
+1. Object Rest & Spread
+这块代码展示了 spread 语法，可以把 input 对象的数据都拓展到 output 对象，这个功能很实用。需要注意的是，如果存在相同的属性名，只有最后一个会生效。
+```bash
+    const input = {
+      a: 1,
+      b: 2,
+      c: 3
+    }
+ 
+    const output = {
+      ...input,
+      d: 4
+    }
+ 
+    console.log(output)  // {a: 1, b: 2, c: 3, d: 4}
+```
+注意点: 
+如果属性的值是一个对象的话，该对象的引用会被拷贝，而不是生成一个新的对象。
+```bash
+    const obj = { x: { y: 10 } };
+    const copy1 = { ...obj };
+    const copy2 = { ...obj };
+    obj.x.y = "jimmy";
+    console.log(copy1, copy2); // x: {y: "jimmy"} x: {y: "jimmy"}
+    console.log(copy1.x === copy2.x); // → true
+```
+
+# ES2019（ES10）
+1. Object.fromEntries()
+
+方法 Object.fromEntries() 把键值对列表转换为一个对象，这个方法是和 Object.entries() 相对的。
+
+Object 转换操作   
+
+```bash
+const obj = {
+    name: 'jimmy',
+    age: 18
+}
+const entries = Object.entries(obj)
+console.log(entries)
+// [Array(2), Array(2)]
+ 
+// ES10
+const fromEntries = Object.fromEntries(entries)
+console.log(fromEntries)
+// {name: "jimmy", age: 18}
+```
+
+过滤:
+
+```bash
+    const course = {
+      math: 80,
+      english: 85,
+      chinese: 90
+    }
+ 
+    const res = Object.entries(course).filter(([key, val]) => val > 80);
+    console.log(res); // [ [ 'english', 85 ], [ 'chinese', 90 ] ]
+    console.log(Object.fromEntries(res)); //{english: 85, chinese: 90}
+```
+
+2. Array.prototype.flat()
+
+```bash
+let newArray = arr.flat( depth )
+```
+depth 可选， 指定要提取嵌套数组的结构深度，默认值为 1。 
+
+demo: flat()  方法会按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。
+```bash
+const arr1 = [0, 1, 2, [3, 4]];
+console.log(arr1.flat());  //  [0, 1, 2, 3, 4]
+const arr2 = [0, 1, 2, [[[3, 4]]]];
+console.log(arr2.flat(2));  //  [0, 1, 2, [3, 4]]
+ 
+//使用 Infinity，可展开任意深度的嵌套数组
+var arr4 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
+arr4.flat(Infinity); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+ 
+// `flat()` 方法会移除数组中的空项:
+var arr5 = [1, 2, , 4, 5];
+arr5.flat(); // [1, 2, 4, 5]
+```
+
+3. Array.prototype.flatMap()
+
+对比下 map 和 flatMap 的区别
+
+```bash
+let arr = ['今天天气不错', '', '早上好']
+arr.map(s => s.split(''))
+// [["今", "天", "天", "气", "不", "错"],[""],["早", "上", "好"]]
+arr.flatMap(s => s.split(''))
+// ["今", "天", "天", "气", "不", "错", "", "早", "上", "好"]
+```
+
+4. String.prototype.trimStart()
+
+trimStart() 方法从字符串的开头删除空格，trimLeft()是此方法的别名。    
+
+String.prototype.trimEnd(), 就不介绍了，和下面类似；
+```bash
+let str = '   foo  '
+console.log(str.length) // 8
+str = str.trimStart() // 或str.trimLeft()
+console.log(str.length) // 5
+```
+
+# ES2020（ES11）
+1. 空值合并运算符（Nullish coalescing Operator）
+
+空值合并操作符（ ?? ）是一个逻辑操作符，当左侧的操作数为 null或者undefined时，返回其右侧操作数，否则返回左侧操作数。   
+
+与逻辑或操作符（||）不同，逻辑或操作符会在左侧操作数为假值时返回右侧操作数。也就是说，如果使用 || 来为某些变量设置默认值，可能会遇到意料之外的行为。比如为假值（例如'',0,NaN,false）时.
+```bash
+    const name = "" ?? "Barry"
+    const name2 = "" || "Barry"
+ 
+    console.log(name); // ""
+    console.log(name2); // "Barry"
+ 
+    const age = 0 ?? 18;
+    const age2 = 0 || 18;
+    console.log(age); // 0
+    console.log(age2); // 18
+```
+
+# ES2021（ES12）
+1. 逻辑运算符和赋值表达式（&&=，||=，??=）
+
+逻辑与赋值 x &&= y 等效于：
+
+```bash
+x && (x = y);
+```
+
+上面的意思是，当x为真时，x=y。具体请看下面的示例: 
+```bash
+    let a = 1;
+    let b = 0;
+ 
+    a &&= 2;
+ 
+    b &&= 2;
+ 
+    console.log(a); // 2
+    console.log(b); // 0
+```
+
+||=
+
+逻辑或赋值（x ||= y）运算仅在 x 为 false 时赋值。x ||= y 等同于：x || (x = y);
+```bash
+    const a = { duration: 50, title: "" }
+ 
+    a.duration ||= 20;
+    console.log(a.duration);  // 50
+ 
+    a.title ||= "Barry"
+    
+    console.log(a); // { duration: 50, title: "Barry" }
+```
+
+??=
+
+逻辑空赋值运算符 ( x ??= y ) 仅在 x 是 null 或 undefined 时对其赋值。
+
+x ??= y 等价于：x ?? (x = y);
+
+```bash
+const a = { duration: 50 };
+ 
+a.duration ??= 10;
+console.log(a.duration); // 50
+ 
+a.speed ??= 25;
+console.log(a.speed); // 25
+```
+
+2. String.prototype.replaceAll()
+
+replaceAll()  方法返回一个新字符串，新字符串中所有满足 pattern 的部分都会被replacement 替换。pattern 可以是一个字符串或一个 RegExp，replacement可以是一个字符串或一个在每次匹配被调用的函数。
+
+原始字符串保持不变。
+
+```bash
+    const str = 'aabbccdd';
+    const newStr = str.replaceAll('b', '*')
+    console.log(newStr); // 'aa**bbccdd'
+```
+
+3. 数字分隔符
+
+欧美语言中，较长的数值允许每三位添加一个分隔符（通常是一个逗号），增加数值的可读性。比如，1000 可以写作1,000。
+
+ES2021中允许 JavaScript 的数值使用下划线（_）作为分隔符。
+```bash
+let budget = 1_000_000_000_000;
+budget === 10 ** 12 // true
+```
+
+这个数值分隔符没有指定间隔的位数，也就是说，可以每三位添加一个分隔符，也可以每一位、每两位、每四位添加一个。 
+```bash
+123_00 === 12_300 // true
+ 
+12345_00 === 123_4500 // true
+12345_00 === 1_234_500 // true
+```
+
+小数和科学计数法也可以使用数值分隔符。 
+
+```bash
+// 小数
+0.000_001
+ 
+// 科学计数法
+1e10_000
+```
+
+数值分隔符有几个使用注意点。
+```bash
+不能放在数值的最前面（leading）或最后面（trailing）。
+
+不能两个或两个以上的分隔符连在一起。
+
+小数点的前后不能有分隔符。
+
+科学计数法里面，表示指数的e或E前后不能有分隔符。
+
+// 全部报错
+3_.141
+3._141
+1_e12
+1e_12
+123__456
+_1464301
+1464301_
+```
+
+4. Promise.any
+
+方法接受一组 Promise 实例作为参数，包装成一个新的 Promise 实例返回。
+```bash
+    const promise1 = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('promise1')
+        }, 3000);
+      })
+    }
+ 
+    const promise2 = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('promise2')
+        }, 2000);
+      })
+    }
+ 
+    const promise3 = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject('promise3 error')
+        }, 1000);
+      })
+    }
+ 
+    Promise.any([promise1(), promise2(), promise3(),]).then(res => {
+       // 只要有一个请求成功 就会返回第一个请求成功的 
+      console.log('res', res); // 会返回promise2
+    }).catch(err => {
+      console.log('err', err);
+    })
+```
+Promise.any() 跟 Promise.race() 方法很像，只有一点不同，就是 Promise.any() 不会因为某个 Promise 变成 rejected 状态而结束，必须等到所有参数 Promise 变成 rejected 状态才会结束。 
 
 1.  AnyRule
     这是一个用来快速检索常用正则表达式的插件，希望能给大家在繁忙的开发过程中带来一丁点的效率提升。
