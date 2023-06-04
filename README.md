@@ -66,7 +66,7 @@ module.exports = {
 
 ![lint.png](./imags/lint.png)
 
-### 注意： eslint查找自己配置文件的优先级如下
+### 注意： eslint 查找自己配置文件的优先级如下
 
 如果在同一目录下存在多个配置文件，ESLint 将按照以下优先顺序只使用其中一个（并不会进行合并配置）：
 
@@ -79,16 +79,15 @@ package.json
 
 如果项目中存在多个配置文件则 eslint 先检同级下的 配置文件然后在找别的，选择原则就是就近原则。
 
-ESLint 会自动在要检查文件的目录中寻找（ .eslintrc.* 和 package.json 文件），并在其直系父目录中寻找，直到文件系统的根目录（/）、当前用户的主目录（~/）或指定 root: true 时停止。
+ESLint 会自动在要检查文件的目录中寻找（ .eslintrc.\* 和 package.json 文件），并在其直系父目录中寻找，直到文件系统的根目录（/）、当前用户的主目录（~/）或指定 root: true 时停止。
 
 *例如：*如果在你的主目录下有一个自定义的配置文件 (~/.eslintrc) ，如果没有其它配置文件时它才会被使用。
 
 代码中的不规范的格式就暴露出来了，现在可以来修复并且格式化代码。在格式化代码方面，prettier 做的更好点
 
-
 ## prettier
 
-`prettier` 是一款开源的代码格式化包，支持多种代码编写工具，常见的 `vscode, webstorm` 等，他都是支持的，那么怎么给他集成起来呢？(多语言支持 配置少 支持广泛) [prettier](https://www.prettier.cn/docs/index.html) 
+`prettier` 是一款开源的代码格式化包，支持多种代码编写工具，常见的 `vscode, webstorm` 等，他都是支持的，那么怎么给他集成起来呢？(多语言支持 配置少 支持广泛) [prettier](https://www.prettier.cn/docs/index.html)
 
 使用下面语句来安装依赖：
 
@@ -560,34 +559,32 @@ npm run release # 2.1.3-alpha.1 to 2.2.0
 
 对于版本号信息，参考 [npm version](https://docs.npmjs.com/cli/v7/commands/npm-version) 文档:
 
- 
- 1. AnyRule 
-这是一个用来快速检索常用正则表达式的插件，希望能给大家在繁忙的开发过程中带来一丁点的效率提升。
+1.  AnyRule
+    这是一个用来快速检索常用正则表达式的插件，希望能给大家在繁忙的开发过程中带来一丁点的效率提升。
 
- 2. Path Intellisense
-   该扩展可以自动补全代码中的路径和文件名。例如前端的静态文件引入路径填写修改。
+2.  Path Intellisense
+    该扩展可以自动补全代码中的路径和文件名。例如前端的静态文件引入路径填写修改。
 
- 3.  GitLens
-   这个工具可以清楚的看见代码是谁写的，还有很多功能，也是团队开发中必安的插件。
+3.  GitLens
+    这个工具可以清楚的看见代码是谁写的，还有很多功能，也是团队开发中必安的插件。
 
- 4. chatgpt中文版
-   无需注册，无需翻墙
+4.  chatgpt 中文版
+    无需注册，无需翻墙
 
- 5. Quokka.js
-    它可以用于快速构建 JavaScript / TypeScript 原型设计的开发人员生产力工具。当您输入时，运行时，值会更新并显示在您的代码旁边的 IDE 中。 
- 6. Code Runner 
-   可以运行多种语言的代码片段或代码文件，包括 JavaScript。它有点类似于 Quokka，但它支持多种编程语言，并且只能运行一个代码片段。
- 7. Import Cost
-   此工具将在编辑器中内联显示导入包的大小。作为一个有抱负的前端开发者，我们应该对导入包的体积敏感，从而优化性能。
- 8. Image preview
-   当我们在 HTML 或 CSS 中导入图像时，它会在侧边栏中显示图像。通过这个特性，我们可以快速观察代码是否写得正确。
- 9. Web Gradients
- [Web Gradients](https://webgradients.com/)
- 在这里我们可以实现网站漂亮的渐变背景颜色的设计与合成。
+5.  Quokka.js
+    它可以用于快速构建 JavaScript / TypeScript 原型设计的开发人员生产力工具。当您输入时，运行时，值会更新并显示在您的代码旁边的 IDE 中。
+6.  Import Cost
+    此工具将在编辑器中内联显示导入包的大小。作为一个有抱负的前端开发者，我们应该对导入包的体积敏感，从而优化性能。
+7.  Image preview
+    当我们在 HTML 或 CSS 中导入图像时，它会在侧边栏中显示图像。通过这个特性，我们可以快速观察代码是否写得正确。
+8.  TODO
+    通常在进行编码时，你认为可能有更好的方法来执行相同的操作。 这时你留下注释 // TODO: 需要重构 或其他相关的东西。 但是你很容易忘记了这个注释，并将你的代码推送到主版本库(master) 或者生产环境(production)。
+9.  Indent Rainbow
+    彩虹缩进(Indent Rainbow)扩展为每个缩进层级用四种不同颜色交替着色。
+10. Web Gradients
+    [Web Gradients](https://webgradients.com/)
+    在这里我们可以实现网站漂亮的渐变背景颜色的设计与合成。
 
- 10. learn-anything
- [learn-anything](https://learn-anything.xyz)
- 当我们想学习一些东西时，这里提供详细的路线。
-
-  
-
+11. learn-anything
+    [learn-anything](https://learn-anything.xyz)
+    当我们想学习一些东西时，这里提供详细的路线。
