@@ -71,10 +71,15 @@ module.exports = {
 如果在同一目录下存在多个配置文件，ESLint 将按照以下优先顺序只使用其中一个（并不会进行合并配置）：
 
 .eslintrc.js
+
 .eslintrc.cjs
+
 .eslintrc.yaml
+
 .eslintrc.yml
+
 .eslintrc.json
+
 package.json
 
 如果项目中存在多个配置文件则 eslint 先检同级下的 配置文件然后在找别的，选择原则就是就近原则。
@@ -159,13 +164,20 @@ dist
 ### eslint 和 prettier 的区别
 
 eslint 官网描述：
+
 目标是提供一个插件化的 javascript 代码检测工具
+
 prettier 官网描述：
+
 1、一个“有态度”的代码格式化工具
+
 2、支持大量编程语言
+
 区别
+
 1、eslint 针对的是 javascript，他是一个检测工具，包含 js 语法以及少部分格式问题，在 eslint 看来，语法对了就能
 保证代码正常运行，格式问题属于其次；
+
 2、prettier 属于格式化工具，它看不惯格式不统一，所以它就把 eslint 没干好的事接着干，另外，prettier 支持
 包含 js 在内的**多种语言**
 
@@ -562,7 +574,8 @@ npm run release # 2.1.3-alpha.1 to 2.2.0
 # ES2016（ES7）
 1. Array.prototype.includes()  
 includes( )  方法用来判断一个数组是否包含一个指定的值，如果包含则返回 true，否则返回 false。
-1.2  语法及示例 
+
+语法及示例 
 ```bash
 const arr = ['Barry','Lishen','Jenny','Chany'];
  
@@ -587,8 +600,11 @@ computed index 是 4 + (-5) = -1
 console.log(arr.includes('Barry',-5)); // true
 ```
 注意点:
+
 使用 includes()查找字符串是区分大小写的。
+
 使用 includes()只能判断简单类型的数据，对于复杂类型的数据，比如对象类型的数组，二维数组，这些是无法判断的.
+
 能识别NaN，indexOf是不能识别NaN的
 ```bash
     const arr = ['Barry', 'Lishen', 'Jenny', NaN, 'Chany'];
@@ -622,7 +638,9 @@ console.log(2 ** 10); // 1024
 
 # ES2017（ES8）
 1. Object.values()
+
   Object.values 方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键值。
+
 ```bash
     const obj = {
       name: "Barry",
@@ -633,7 +651,8 @@ console.log(2 ** 10); // 1024
     console.log(Object.values(obj)); // ['Barry', 18, 185, 1000000000]
 ```
 
-2. Object.entries()
+1. Object.entries()
+
 Object.entries() 方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历属性的键值对数组。
 ```bash
     const obj = {
@@ -645,8 +664,10 @@ Object.entries() 方法返回一个数组，成员是参数对象自身的（不
     console.log(Object.entries(obj)); // [['name','Barry'], ['age',18], ['height',185], ['money',100000000]]
 ```
 
-3. String.prototype.padStart
+1. String.prototype.padStart
+
   str.padStart(targetLength , padString)
+
 targetLength
 
         当前字符串需要填充到的目标长度。如果这个数值小于当前字符串的长度，则返回当前字符串本身。
@@ -675,7 +696,7 @@ padString 可选
     console.log(formatTel(tel));  // *******0333
 ```
 
-4. String.prototype.padEnd
+1. String.prototype.padEnd
 把指定字符串填充到字符串尾部，返回新字符串。语法同 String.prototype.padStart
 ```bash
     const str = "ABC";
@@ -702,16 +723,6 @@ padString 可选
     }
  
     console.log(output)  // {a: 1, b: 2, c: 3, d: 4}
-```
-注意点: 
-如果属性的值是一个对象的话，该对象的引用会被拷贝，而不是生成一个新的对象。
-```bash
-    const obj = { x: { y: 10 } };
-    const copy1 = { ...obj };
-    const copy2 = { ...obj };
-    obj.x.y = "jimmy";
-    console.log(copy1, copy2); // x: {y: "jimmy"} x: {y: "jimmy"}
-    console.log(copy1.x === copy2.x); // → true
 ```
 
 # ES2019（ES10）
@@ -800,9 +811,9 @@ console.log(str.length) // 5
 # ES2020（ES11）
 1. 空值合并运算符（Nullish coalescing Operator）
 
-空值合并操作符（ ?? ）是一个逻辑操作符，当左侧的操作数为 null或者undefined时，返回其右侧操作数，否则返回左侧操作数。   
+  空值合并操作符（ ?? ）是一个逻辑操作符，当左侧的操作数为 null或者undefined时，返回其右侧操作数，否则返回左侧操作数。   
 
-与逻辑或操作符（||）不同，逻辑或操作符会在左侧操作数为假值时返回右侧操作数。也就是说，如果使用 || 来为某些变量设置默认值，可能会遇到意料之外的行为。比如为假值（例如'',0,NaN,false）时.
+  与逻辑或操作符（||）不同，逻辑或操作符会在左侧操作数为假值时返回右侧操作数。也就是说，如果使用 || 来为某些变量设置默认值，可能会遇到意料之外的行为。比如为假值（例如'',0,NaN,false）时.
 ```bash
     const name = "" ?? "Barry"
     const name2 = "" || "Barry"
@@ -964,6 +975,10 @@ _1464301
     })
 ```
 Promise.any() 跟 Promise.race() 方法很像，只有一点不同，就是 Promise.any() 不会因为某个 Promise 变成 rejected 状态而结束，必须等到所有参数 Promise 变成 rejected 状态才会结束。 
+
+
+
+
 
 1.  AnyRule
     这是一个用来快速检索常用正则表达式的插件，希望能给大家在繁忙的开发过程中带来一丁点的效率提升。
