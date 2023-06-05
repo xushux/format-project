@@ -4,7 +4,7 @@ import './App.css'
 
 function App() {
   const func = () => {
-    return '112111123123'
+    return '112111'
   }
   return (
     <div className="App">
