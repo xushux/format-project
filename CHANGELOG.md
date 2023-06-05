@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/xushux/demo/compare/v1.3.0...v1.4.0) (2023-06-05)
+
+
+### Features
+
+* **test:** test issues ([#4](https://github.com/xushux/demo/issues/4)) ([21829d4](https://github.com/xushux/demo/commit/21829d4955732f99ed559ab68b8c1b746befa5b1))
+* **test:** update test ([5f5a280](https://github.com/xushux/demo/commit/5f5a2806887bf67dcce6f6f7a00658c34153c0c6))
+
+
+### Bug Fixes
+
+* **test:** try to close issues ([b29be10](https://github.com/xushux/demo/commit/b29be102209ca3607853adb3f720785ab4a4bd97)), closes [#4](https://github.com/xushux/demo/issues/4)
+
 ## [1.3.0](https://github.com/xushux/demo/compare/v1.2.2...v1.3.0) (2023-06-03)
 
 
